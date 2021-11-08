@@ -31,45 +31,11 @@ module OmniAuth
       end
 
       def callback_phase 
-        super
+        puts "************callback_phase************"
+        puts request.params
+        puts params
+        puts "************callback_phase************"
       end
-
-      def raw_info
-        puts "******raw info*************"
-        puts access_token
-        puts "******raw info*************"
-      end
-
-      def auth_hash
-          puts "**********auth hash**********"
-          puts params
-          puts "**********auth hash end**********"
-      end
-
-      # info do
-      #   {
-      #     name: raw_info["user"]["name"],
-      #     bio: raw_info["user"]["bio"],
-      #     facebook_profile: raw_info["user"]["facebook_profile"],
-      #     twitter_handle: raw_info["user"]["twitter_handle"],
-      #     id: raw_info["user"]["id"]
-      #   }
-      # end
-
-      # uid { raw_info["user"]["id"].to_s }
-
-      # extra do
-      #   { raw_info: raw_info }
-      # end
-
-      # def raw_info
-      #   puts "******************raw_info**********************************"
-      #   puts access_token
-      #   puts "******************raw_info**********************************"
-      #   @raw_info ||= access_token.get("/api/v2/user").parsed
-      # end
     end
   end
 end
-
-OmniAuth.config.add_camelization "squarespace", "Squarespace"
